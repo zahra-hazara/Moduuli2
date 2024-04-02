@@ -1,48 +1,46 @@
 package Association.Task2;
-
+import Association.Task1.Book;
 import java.util.ArrayList;
-import java.util.List;
 
-class Library {
-    private List<Book> books;
 
-    public Library() {
-        this.books = new ArrayList<>();
-    }
+public class Library {
+    private ArrayList<Book> books = new ArrayList<>();
 
     public void addBook(Book book) {
         books.add(book);
     }
 
-    public void borrowBook(String title) {
-        Book bookToBorrow = null;
+    public void displayBooks() {
+        System.out.println("Library Catalog:");
         for (Book book : books) {
-            if (book.title.equalsIgnoreCase(title)) {
-                bookToBorrow = book;
-                break;
+            System.out.println("Title: \"" + book.getTitle() + "\", Author: \"" + book.getAuthor() + "\", Year: " + book.getPublicationYear());
+        }
+    }
+
+    public void findBooksByAuthor(String author) {
+        System.out.println("\nBooks by Author \"" + author + "\":");
+        for (Book book : books) {
+            if (book.getAuthor().equals(author)) {
+                System.out.println("Title: \"" + book.getTitle() + "\", Year: " + book.getPublicationYear());
             }
         }
-        if (bookToBorrow != null) {
-            books.remove(bookToBorrow);
-            System.out.println(bookToBorrow.title + " has been borrowed.");
-        } else {
-            System.out.println("Book not available.");
+    }
+
+    public void borrowBook(String title) {
+        for (int i = 0; i < books.size(); i++) {
+            Book book = books.get(i);
+            if (book.getTitle().equals(title)) {
+                books.remove(i);
+                System.out.println("Book borrowed: " + title);
+                return;
+            }
         }
+        System.out.println("Book not found: " + title);
     }
 
     public void returnBook(Book book) {
         books.add(book);
-        System.out.println(book.title + " has been returned to the library.");
+        System.out.println("Book returned: " + book.getTitle());
     }
 
-    public void printAvailableBooks() {
-        if (books.isEmpty()) {
-            System.out.println("No books available.");
-        } else {
-            System.out.println("Available books:");
-            for (Book book : books) {
-                System.out.println(book);
-            }
-        }
-    }
 }

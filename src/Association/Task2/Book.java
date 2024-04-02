@@ -1,5 +1,5 @@
 package Association.Task2;
-class Book {
+public class Book {
     String title;
     String author;
     int publicationYear;

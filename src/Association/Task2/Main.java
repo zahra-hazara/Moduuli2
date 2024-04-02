@@ -1,18 +1,26 @@
 package Association.Task2;
+import Association.Task1.Book;
 
 public class Main {
     public static void main(String[] args) {
+        Book book1 = new Book("Introduction to Java Programming", "John Smith", 2020);
+        Book book2 = new Book("Data Structures and Algorithms", "Jane Doe", 2018);
+        Book book3 = new Book("The Art of Fiction", "Alice Johnson", 2019);
+
         Library library = new Library();
-        library.addBook(new Book("The Power of Your Subconscious Mind", "Joseph Murphy", 1963));
-        library.addBook(new Book("How to Win Friends and Influence People", "Dale Carnegie", 1936));
+        library.addBook(book1);
+        library.addBook(book2);
+        library.addBook(book3);
 
-        library.printAvailableBooks();
+        // Initially display all books
+        library.displayBooks();
 
-        library.borrowBook("The Power of Your Subconscious Mind");
-        library.printAvailableBooks();
+        // Borrow a book
+        library.borrowBook("Data Structures and Algorithms");
 
-        Book returnedBook = new Book("The Power of Your Subconscious Mind", "Joseph Murphy", 1963);
-        library.returnBook(returnedBook);
-        library.printAvailableBooks();
+
+        // Return the borrowed book
+        library.returnBook(book2);
+
     }
 }
