@@ -52,5 +52,4 @@ public class Car {
         }
     }
 
-    // Additional methods for car functionality as required...
 }

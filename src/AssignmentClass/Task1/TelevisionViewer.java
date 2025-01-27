@@ -1,27 +1,23 @@
 package AssignmentClass.Task1;
-
 public class TelevisionViewer {
     public static void main(String[] args) {
-        Television myTV = new Television();
-        myTV.setChannel(1);
+        Television tv = new Television();
 
         for (int day = 1; day <= 10; day++) {
             System.out.println("Woke up, day " + day);
+            tv.turnOn();
 
-            boolean tired = false;
+            // Watch 3-4 channels depending on the day
+            int channelsToWatch = (day % 2 == 1) ? 6 : 4;
 
-            if (!myTV.isOn())
-                myTV.pressOnOff();
-
-            while (!tired) {
-                System.out.println("Watching channel " + myTV.getChannel());
-                myTV.setChannel(myTV.getChannel() + 1);
-                if (myTV.getChannel() % 4 == 0)
-                    tired = true;
+            for (int i = 0; i < channelsToWatch; i++) {
+                if (i > 0) {
+                    tv.changeChannel();
+                }
+                System.out.println("Watching channel " + tv.getCurrentChannel());
             }
 
-            myTV.pressOnOff();
-
+            tv.turnOff();
             System.out.println("Falling asleep");
         }
     }

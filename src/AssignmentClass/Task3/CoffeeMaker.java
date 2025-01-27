@@ -49,7 +49,7 @@ public class CoffeeMaker {
         return coffeeAmount;
     }
 
-    // Method to make coffee, this might include additional logic to simulate making coffee
+    // Method to make coffee
     public void makeCoffee() {
         if (this.isOn) {
             // Coffee making process...
@@ -57,6 +57,5 @@ public class CoffeeMaker {
         }
     }
 
-    // Other methods and logic for coffee making could be added here...
 }
 

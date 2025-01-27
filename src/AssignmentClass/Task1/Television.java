@@ -1,32 +1,34 @@
 package AssignmentClass.Task1;
 
 public class Television {
-    private boolean isOn = false;
-    private int channel = 1;
+    private boolean isOn;
+    private int currentChannel;
+    private static final int MAX_CHANNEL = 10;
 
-    //behaivor
-    public void pressOnOff() {
-        isOn = !isOn;
+    public Television() {
+        this.isOn = false;
+        this.currentChannel = 1;
+    }
+
+    public void turnOn() {
+        this.isOn = true;
+    }
+
+    public void turnOff() {
+        this.isOn = false;
+    }
+
+    public void changeChannel() {
         if (isOn) {
-            channel = 1;
+            currentChannel = (currentChannel % MAX_CHANNEL) + 1;
         }
     }
-    //for check
+
+    public int getCurrentChannel() {
+        return currentChannel;
+    }
+
     public boolean isOn() {
         return isOn;
-    }
-    // get channel
-    public int getChannel() {
-        return channel;
-    }
-
-    //set the channel
-    public void setChannel(int channel) {
-        // Assuming the TV has channels 1 to 10, looping back to 1 after 10
-        if (channel > 10) {
-            this.channel = 1;
-        } else {
-            this.channel = channel;
-        }
     }
 }

@@ -4,8 +4,6 @@ public class Main {
         // Creating a Car object
         Car myCar = new Car("Toyota Camry", 2020, 15.5, 120.0);
 
-        // access
-
         System.out.println("Model: " + myCar.getModel());
         System.out.println("Year: " + myCar.getYear());
         System.out.println("Gasoline Tank Capacity: " + myCar.getGasolineTankCapacity() + " gallons");

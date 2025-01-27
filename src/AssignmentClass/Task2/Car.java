@@ -13,6 +13,7 @@ public class Car {
         this.year = year;
         this.gasolineTankCapacity = gasolineTankCapacity;
         this.topSpeed = topSpeed;
+
     }
 
     // Getter methods
